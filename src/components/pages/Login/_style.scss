@@ -1,0 +1,154 @@
+@import '../../../css/general_styling';
+
+.error {
+  text-align: right;
+  color: #e20000;
+  font-family: 'poppins-medium';
+  padding: 5px;
+}
+
+.ContainerAppLogin {
+  width: 100%;
+  background: transparent;
+  padding: 0 80px;
+  display: flex;
+  align-items: center;
+  height: 90vh;
+  justify-content: space-between;
+
+  .ant-form-item {
+    .ant-form-item-label {
+      text-align: left;
+      > label {
+        color: $secondary-color;
+        @include label($body, $secondary-color);
+      }
+      > label.ant-form-item-required::before {
+        display: none;
+      }
+    }
+    .ant-form-item-control {
+      .ant-input {
+        background-color: transparent;
+        border: 1px solid $secondary-color;
+        border-radius: 5px;
+        &:hover {
+          background-color: #e8f0fe7e;
+          transition: all 0.3s;
+        }
+      }
+      input {
+        padding: 10px 11px;
+        @include label(14px, $secondary-color);
+      }
+    }
+  }
+
+  .ButtonPrimary {
+    padding: 0 5em;
+    margin-top: 1em;
+    background: $primary-color;
+    cursor: pointer;
+    p {
+      color: $white;
+    }
+
+    &:hover {
+      // background: $hover;
+      p {
+        color: $white;
+      }
+    }
+  }
+  .LoginFormContainer {
+    width: 30%;
+    margin-right: 5em;
+
+    h1 {
+      font-size: 30px;
+      color: $primary-color;
+      font-family: 'poppins-light';
+    }
+    p {
+      font-family: 'poppins-regular';
+    }
+
+    .ant-form {
+      display: flex;
+      flex-direction: column;
+      margin-top: 3em;
+      .ant-form-item {
+        display: flex;
+        flex-direction: column;
+      }
+      .username {
+        width: 100%;
+      }
+      .password {
+        width: 100%;
+      }
+      .RecoverPassword {
+        @include label($body, $secondary-color);
+        span {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+.ant-input-affix-wrapper {
+  background-color: transparent;
+}
+
+@media only screen and (max-width: 1200px) {
+  .ContainerAppLogin {
+    flex-direction: row-reverse;
+    padding: 5em 0;
+    .LoginFormContainer {
+      width: 100%;
+      padding: 0;
+      .formImg {
+        margin-bottom: 2em;
+        display: inline;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .ContainerAppLogin {
+    flex-direction: column;
+    padding: 5em 0;
+    .loginLogo {
+      display: none;
+    }
+    .LoginFormContainer {
+      width: 100%;
+      border-right: none;
+      padding: 0;
+      .ant-form-item {
+        width: 100%;
+      }
+      .formImg {
+        margin-bottom: 2em;
+        display: inline;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .ContainerAppLogin {
+    padding: 0;
+    .LoginFormContainer {
+      padding: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .ContainerAppLogin {
+    padding: 0em;
+  }
+}

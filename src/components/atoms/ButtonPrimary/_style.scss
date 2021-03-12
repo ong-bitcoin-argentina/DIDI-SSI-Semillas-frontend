@@ -1,0 +1,87 @@
+@import '../../../css/general_styling';
+
+.ButtonPrimary {
+  background: $primary-color;
+  height: 50px;
+  border-radius: 11px;
+  width: max-content;
+  padding: 0.5em 2em;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  box-shadow: 2px 4px 11px rgba(14, 168, 155, 0.15);
+
+  p {
+    @include primary-title($body, $white);
+  }
+  &.default {
+    background: $white;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+    p {
+      color: $primary-color;
+    }
+  }
+}
+.ThemeDisable {
+  background: $light-grey;
+  cursor: auto;
+  p {
+    color: $dark-grey;
+    @include primary-title($body, $white);
+  }
+
+  &:hover {
+    background: $light-grey;
+    //box-shadow: $shadow-blue;
+  }
+}
+
+.small {
+  padding: 0.2em 1em;
+  height: 32px;
+  p {
+    font-size: 13px !important;
+  }
+}
+
+.cancel {
+  background-color: $white;
+  border: 1px solid $secondary-color;
+  cursor: pointer;
+  p {
+    @include primary-title($body, $secondary-color);
+  }
+
+  // &:hover {
+  //   background: #01469C;
+  //   //box-shadow: $shadow-blue;
+  // }
+}
+
+.error {
+  background-color: $white;
+  border: 1px solid $error;
+  cursor: pointer;
+  p {
+    @include primary-title($body, $error);
+  }
+}
+
+.primary {
+  background-color: $primary-color;
+  box-shadow: 2px 4px 11px rgba(14, 168, 155, 0.15);
+  cursor: pointer;
+  //padding: 1em 5em;
+  p {
+    @include primary-title($body, $white);
+  }
+  &:hover {
+    // background:$hover;
+    box-shadow: 2px 10px 12px rgba(8, 141, 130, 0.15);
+    transition: ease-out 0.5s;
+    p {
+      color: $white;
+    }
+  }
+}

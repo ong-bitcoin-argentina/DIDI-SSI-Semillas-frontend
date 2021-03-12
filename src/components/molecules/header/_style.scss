@@ -1,0 +1,26 @@
+@import '../../../css/general_styling';
+
+.header {
+  position: fixed;
+  width: $sidebar-size;
+  display: flex;
+  flex-direction: column;
+  .TopNav {
+    border-bottom: 1px solid #eceff3;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    background-color: $white;
+    border-right: 1px solid #f0f0f0;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .NavBar {
+    width: 20px;
+  }
+  .logo {
+    width: 80%;
+  }
+}

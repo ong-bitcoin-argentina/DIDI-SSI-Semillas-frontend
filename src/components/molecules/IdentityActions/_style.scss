@@ -1,0 +1,17 @@
+@import '../../../css/general_styling';
+@import '../../../css/modal';
+
+.identity-actions {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer {
+  width: 100%;
+  text-align: center;
+  .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

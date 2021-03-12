@@ -1,0 +1,145 @@
+@import '../../../css/general_styling';
+
+.FileUploader {
+  .ant-upload-list-item-card-actions {
+    opacity: 1;
+
+  }
+  .ant-upload.ant-upload-drag {
+    margin: 20px 0 15px 0;
+    height: 250px;
+    border-radius: 7px;
+    &:not(.ant-upload-disabled):hover {
+      border-color: #b4b7ff;
+      background-color: #fdfefe;
+      transition: all 0.9s;
+    }
+    .ant-upload-btn {
+      height: 100%;
+    }
+    p.ant-upload-text {
+      @include label(12px, $secondary-color);
+    }
+    .ant-upload-hint {
+      font-size: 12px;
+    }
+  }
+  .preview {
+    .ant-upload-drag-container {
+      img {
+        margin-bottom: 1em;
+      }
+    }
+    .ant-upload-list {
+      line-height: 55px;
+      margin: 1em 0;
+      .ant-upload-list-item {
+        height: 55px;
+        margin: 0px;
+        background-color: #fdfefe;
+        border-radius: 5px;
+        &:hover .ant-upload-list-item-info {
+          border-radius: 5px;
+          background-color: #f0f1ff;
+        }
+        .ant-upload-list-item-info {
+          padding: 0 1em;
+        }
+        .ant-upload-list-item-info .anticon-loading .anticon,
+        .ant-upload-list-item-info .ant-upload-text-icon .anticon {
+          top: 20px;
+        }
+        .ant-upload-list-item-name {
+          @include primary-text($body, $secondary-color);
+          margin-top: 16px;
+        }
+      }
+    }
+    .result-container {
+      height: 250px;
+      border-radius: 7px;
+      border: 1px solid #b4b7ff;
+      background-color: #fdfefe;
+      .result {
+        background-color: #eff3fa;
+        padding: 10px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        img {
+          margin-right: 0.5em;
+        }
+        .process {
+          @include label($label, $secondary-color);
+        }
+        .r-success {
+          @include label($label, $primary-color);
+        }
+        .r-error {
+          @include label($label, $error);
+        }
+      }
+      .success {
+        height: 85%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h4 {
+          @include label($body, $secondary-color);
+          margin-top: 0.5em;
+        }
+        p {
+          @include primary-text($body, $secondary-color);
+        }
+      }
+      .error {
+        padding: 10px 15px;
+        h4 {
+          @include primary-text($body, $secondary-color);
+          text-align: left;
+        }
+        ul {
+          height: 140px;
+          overflow: auto;
+          padding: 0;
+          border-top: 1px solid $light-grey;
+          li {
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+            img {
+              margin-right: 0.5em;
+            }
+            label {
+              @include label($body, $error);
+            }
+            p {
+              @include primary-text($body, $secondary-color);
+              margin: 0;
+              padding-left: 5px;
+            }
+            .soft-error {
+              @include label($body, $errorSoft);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .buttonSection {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+  }
+
+  .ant-collapse-content-box {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+}

@@ -1,0 +1,194 @@
+// Colors
+
+$background-grey: #fdfdfe;
+$background-pending: #fffaf0;
+$background-approved: #f3fbfa;
+
+$primary-color: #0ea89b;
+$primary-color-disabled: #689e99;
+$secondary-color: #203342;
+
+$warning: #f1af34;
+$error: #db2e27;
+$errorSoft: #7D2181;
+
+$light-grey: #f3f3f3;
+$medium-grey: #363636;
+$dark-grey: #3d3737;
+
+$white: #ffff;
+$black: black;
+$black-light: #282828;
+
+$border_bottom: 1px solid $light-grey;
+
+// Typographic Scale
+$title-main: 36px;
+$title-secondary: 18px;
+$body: 14px;
+$label: 10px;
+
+// Utils
+$sidebar-size: 18%;
+
+//Text
+
+@mixin primary-text($font-size, $font-color) {
+  margin: 0;
+  font-family: 'raleway-regular';
+  font-size: $font-size;
+  @if $font-color {
+    color: $font-color;
+  }
+}
+
+@mixin primary-text-bold($font-size, $font-color) {
+  margin: 0;
+  font-family: 'raleway-bold';
+  font-size: $font-size;
+  @if $font-color {
+    color: $font-color;
+  }
+}
+
+@mixin primary-title($font-size, $font-color) {
+  margin: 0;
+  font-family: 'poppins-bold';
+  font-size: $font-size;
+  @if $font-color {
+    color: $font-color;
+  }
+}
+
+@mixin label($font-size, $font-color) {
+  margin: 0;
+  font-family: 'poppins-medium';
+  font-size: $font-size;
+  @if $font-color {
+    color: $font-color;
+  }
+}
+
+// Container
+
+@mixin container($color, $border, $radius) {
+  background: #3d3737;
+  border: 1px solid black;
+  border-radius: $radius;
+}
+
+// Font Family
+
+@font-face {
+  font-family: 'poppins-light';
+  src: url(./fonts/Poppins-Light.ttf);
+}
+
+@font-face {
+  font-family: 'poppins-regular';
+  src: url(./fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'poppins-medium';
+  src: url(./fonts/Poppins-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'poppins-bold';
+  src: url(./fonts/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: 'raleway-regular';
+  src: url(./fonts/Raleway-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'raleway-bold';
+  src: url(./fonts/Raleway-SemiBold.ttf);
+}
+
+//Antd
+
+.ant-form {
+  .ant-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px transparent;
+  }
+  .ant-form-item-has-error .ant-form-item-explain,
+  .ant-form-item-has-error .ant-form-item-split {
+    color: $error;
+    @include label($body, $error);
+    margin-top: 0.5em;
+  }
+}
+
+button:focus {
+  outline: transparent;
+}
+
+.ant-btn {
+  border-radius: 11px;
+  font-weight: bold;
+  &:hover {
+    border-color: rgb(40, 40, 40);
+    color: rgb(40, 40, 40);
+  }
+}
+
+.ant-btn-primary {
+  background-color: $primary-color;
+  border: none;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $primary-color;
+    color: white;
+  }
+}
+
+.ant-btn-dangerous {
+  &:hover,
+  &:active,
+  &:focus {
+    color: #ff7875;
+    background-color: #fff;
+    border-color: #ff7875;
+  }
+}
+
+.my-2 {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.mr-1 {
+  margin-right: 0.25rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.my-3 {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.text-error {
+  color: $error;
+}
+
+.bg-error {
+  background-color: $error;
+}
+
+.text-success {
+  color: $primary-color;
+}
+
+.bold-text {
+  font-weight: bold;
+  text-transform: capitalize;
+}

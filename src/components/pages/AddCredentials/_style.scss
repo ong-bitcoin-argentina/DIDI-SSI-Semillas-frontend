@@ -1,0 +1,75 @@
+@import '../../../css/general_styling';
+
+.SurveyImportContainer {
+  padding: 35px 60px 0 60px;
+  justify-content: space-between;
+  .SurveyImport {
+    width: 100%;
+    h3 {
+      @include primary-title($title-secondary, $secondary-color);
+    }
+    .left-side {
+      width: 20%;
+    }
+    .SuccessCreation {
+      display: flex;
+      justify-content: space-between;
+    }
+    .upload-controls {
+      width: 100%;
+    }
+  }
+}
+.AddCredentials,
+.Activities,
+.Requests {
+  .TitlePage button {
+    display: none;
+  }
+  .UploadContent {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .right-img {
+    margin-top: -5em;
+    width: 500px;
+    height: 478px;
+    padding: 155px 10px 0 60px;
+  }
+  .FileTypeSelection {
+    padding: 20px 60px 0 60px;
+  }
+  h3 {
+    @include primary-title($title-secondary, $secondary-color);
+  }
+  .fileImportTypeTitle {
+    padding-top: 60px;
+  }
+}
+
+.slide-fwd-center {
+  -webkit-animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes slide-fwd-center {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  100% {
+    -webkit-transform: translateZ(160px);
+    transform: translateZ(160px);
+  }
+}
+@keyframes slide-fwd-center {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  100% {
+    -webkit-transform: translateZ(160px);
+    transform: translateZ(160px);
+  }
+}

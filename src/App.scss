@@ -1,0 +1,87 @@
+@import './css/general_styling';
+@import './css/modal';
+
+body {
+  background-color: $white;
+}
+
+.App {
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background: linear-gradient(to left, $white, rgba(251, 251, 255, 1));
+
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .Container {
+    width: 100%;
+    display: flex;
+    .Content {
+      background-color: $white;
+      width: calc(100% - #{$sidebar-size});
+      margin-left: $sidebar-size;
+    }
+    .SimpleHeader + .Content {
+      margin-left: 0px;
+    }
+    .SimpleHeader + .Content {
+      width: 100%;
+    }
+  }
+}
+
+button:disabled {
+  pointer-events: none;
+}
+
+.modal-buttons {
+  .footer {
+    width: 90%;
+    margin: auto;
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  button {
+    height: 35px;
+    margin: auto;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 768px) {
+  .App {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .App {
+    padding: 2em;
+    background-size: 90%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .App {
+    padding: 2em;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .App {
+    background-size: 130%;
+  }
+}
+
+.ant-pagination-options {
+  display: none;
+}

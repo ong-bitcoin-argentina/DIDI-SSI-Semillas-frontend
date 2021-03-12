@@ -1,0 +1,21 @@
+@import '../../../css/general_styling';
+
+.MessageLoader {
+  position: relative;
+  width: 100%;
+  height: 115px;
+  .loader-container {
+    text-align: center;
+    margin: auto;
+    left: 0;
+    position: absolute;
+    right: 0;
+  }
+  .loader {
+    margin: 5em auto;
+    color: #b5c6ea;
+  }
+  .message {
+    @include label($body, $secondary-color);
+  }
+}
