@@ -1,6 +1,6 @@
 import helpers from './helpers';
 
-const uploadFile = makePostFileRequest => data => makePostFileRequest('api/file/upload', data);
+const uploadFile = makePostFileRequest => data => makePostFileRequest('credentials/importCredentials', data);
 
 const validateSancorFile = makePostFileRequest => data =>
   makePostFileRequest('api/file/sancorsalud/validate', data);
