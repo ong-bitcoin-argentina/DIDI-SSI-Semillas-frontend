@@ -17,21 +17,19 @@ const { Dragger } = Upload;
 
 const { uploadFile, validateSancorFile, uploadSancorFile } = apiCalls();
 
-const FileUploader = ({ buttonText, source, onChangeSource, onUploaded, onSuccessRequest, pdfValidation = false }) => {
+const FileUploader = ({ buttonText, source, onChangeSource, onUploaded, onSuccessRequest }) => {
   const [file, setFile] = useState(null);
   const [showContainer, setShowContainer] = useState(false);
   const [uploadResponse, setUploadResponse] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [validation, setValidation] = useState();
 
-  const handleUpload = async (createCredentials = false, skipIdentityCredentials = false) => {
+  const handleUpload = async (createCredentials = false) => {
     setUploading(true);
     try {
       const formData = new FormData();
       formData.set('file', file);
       formData.set('createCredentials', createCredentials);
-      formData.set('skipIdentityCredentials', skipIdentityCredentials);
-      formData.set('pdfValidation', pdfValidation);
       const uploadAction = source.name === 'sancor' ? uploadSancorFile : uploadFile;
       const response = await uploadAction(formData);
       if (onSuccessRequest && response.data.downloadableFileName) {
@@ -68,7 +66,7 @@ const FileUploader = ({ buttonText, source, onChangeSource, onUploaded, onSucces
         </div>
       ),
       onOk() {
-        handleUpload(true, true);
+        handleUpload(true);
       }
     });
   };
@@ -84,13 +82,15 @@ const FileUploader = ({ buttonText, source, onChangeSource, onUploaded, onSucces
   };
 
   const onFileChanged = data => {
+    setShowContainer(data.fileList.length > 0);
     data.file.name.toLowerCase().includes('sancor') && onChangeSource({ key: '1' });
     setUploadResponse(null);
     setValidation(null);
-    setShowContainer(data.fileList.length > 0);
   };
 
-  const onRevoke = () => handleUpload();
+  const onRevoke = () => {
+    handleUpload();
+  };
 
   const handleValidate = async () => {
     try {
@@ -154,20 +154,20 @@ const FileUploader = ({ buttonText, source, onChangeSource, onUploaded, onSucces
           {validation.totalErrorsRows === 0 ? (
             <Alert message="El archivo no tiene errores" type="success" closable showIcon />
           ) : (
-            <>
-              <Alert
-                message={`Se encontraron: ${validation.totalErrorsRows} errores.`}
-                type="error"
-                showIcon
-                className="my-2"
-              />
-              <Collapse>
-                <Panel header="Detalle errores" key="1">
-                  {validation.errorRows.map(renderErrorItem)}
-                </Panel>
-              </Collapse>
-            </>
-          )}
+              <>
+                <Alert
+                  message={`Se encontraron: ${validation.totalErrorsRows} errores.`}
+                  type="error"
+                  showIcon
+                  className="my-2"
+                />
+                <Collapse>
+                  <Panel header="Detalle errores" key="1">
+                    {validation.errorRows.map(renderErrorItem)}
+                  </Panel>
+                </Collapse>
+              </>
+            )}
         </div>
       </>
     );
@@ -187,11 +187,14 @@ const FileUploader = ({ buttonText, source, onChangeSource, onUploaded, onSucces
             </Dragger>
 
             <div className="title">
-              <UploadedInfo
-                uploadResponse={uploadResponse}
-                onRevoke={onRevoke}
-                revokeOnlyThisCredential
-              />
+              {
+                showContainer &&
+                <UploadedInfo
+                  uploadResponse={uploadResponse}
+                  onRevoke={onRevoke}
+                  revokeOnlyThisCredential
+                />
+              }
 
               <MessageLoader loading={uploading} message={'Subiendo archivo...'} />
 
@@ -210,12 +213,14 @@ const FileUploader = ({ buttonText, source, onChangeSource, onUploaded, onSucces
                         disabled={!showContainer}
                       />
                     )}
-                    <ButtonPrimary
-                      text={buttonText ?? 'Subir archivo'}
-                      theme="ThemePrimary"
-                      onClick={() => handleUpload()}
-                      disabled={!showContainer}
-                    />
+                    {showContainer && (
+                      <ButtonPrimary
+                        text={buttonText ?? 'Crear credenciales'}
+                        theme="ThemePrimary"
+                        onClick={() => handleUpload()}
+                        disabled={!showContainer}
+                      />
+                    )}
                   </>
                 )}
               </div>
