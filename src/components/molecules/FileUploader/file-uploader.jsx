@@ -66,7 +66,7 @@ const FileUploader = ({ buttonText, source, onChangeSource, onUploaded, onSucces
         </div>
       ),
       onOk() {
-        handleUpload(true, true);
+        handleUpload(true);
       }
     });
   };
