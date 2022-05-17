@@ -33,27 +33,27 @@ const Reports = () => {
     if (response) {
       getFile();
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [response]);
 
   return (
-    <>
-      <TitlePage
-        text="Generación de Reportes de Encuestas"
-        description="Para generar el Reporte PDF de encuesta Socioeconómica, cargá el archivo excel generado desde Caribú:"
-      />
-      <Row>
-        <Col span={20} offset={2}>
-          <FileUploader
-            onSuccessRequest={onUploaded}
-            source={{ name: 'socioeconomica' }}
-            buttonText="Generar Reportes"
-            createCredentials={false}
-            pdfValidation={true}
-          />
-        </Col>
-      </Row>
-    </>
+      <>
+        <TitlePage
+            text="Generación de Reportes de Encuestas"
+            description="Para generar el Reporte PDF de encuesta Socioeconómica, cargá el archivo excel generado desde Kobo:"
+        />
+        <Row>
+          <Col span={20} offset={2}>
+            <FileUploader
+                onSuccessRequest={onUploaded}
+                source={{ name: 'socioeconomica' }}
+                buttonText="Generar Reportes"
+                createCredentials={false}
+                pdfValidation={true}
+            />
+          </Col>
+        </Row>
+      </>
   );
 };
 
